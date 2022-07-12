@@ -8,8 +8,8 @@ Creat by Fairy-Elab on 21-20-2021
   char *ssid = "non";
   char *pass = "non";
 
-  char *apssid = "AcePoi19216841";
-  char *appass = "0987654321";
+  char *apssid = "enter access point";
+  char *appass = "enter pass";
 
   //=========Biến chứa mã HTLM Website==//
   const char MainPage[] PROGMEM = R"=====(
