@@ -3,16 +3,16 @@ Creat by Fairy-Elab on 21-20-2021
 */
 #include <WebServer.h>
 
-  WebServer webServer(80);
+WebServer webServer(80);
 
-  char *ssid = "non";
-  char *pass = "non";
+char *ssid = "non";
+char *pass = "non";
 
-  char *apssid = "enter access point";
-  char *appass = "enter pass";
+char *apssid = "enter access point";
+char *appass = "enter pass";
 
-  //=========Biến chứa mã HTLM Website==//
-  const char MainPage[] PROGMEM = R"=====(
+//=========Biến chứa mã HTLM Website==//
+const char MainPage[] PROGMEM = R"=====(
   <!DOCTYPE html>
   <html>
 
@@ -68,17 +68,17 @@ Creat by Fairy-Elab on 21-20-2021
   </html>
   )=====";
 
-  //=========================================//
-  void setup()
-  {
+//=========================================//
+void setup()
+{
 
   Serial.begin(115200);
 
   WiFi.begin(ssid, pass);
   while (WiFi.status() != WL_CONNECTED)
   {
-  delay(500);
-  Serial.println("Connecting...");
+    delay(500);
+    Serial.println("Connecting...");
   }
   Serial.print("Connecting...");
   Serial.println(WiFi.localIP());
@@ -94,41 +94,41 @@ Creat by Fairy-Elab on 21-20-2021
   webServer.on("/offD2", off_D2);
   webServer.begin();
   Serial.println("Server started");
-  }
+}
 
-  void loop()
-  {
+void loop()
+{
   webServer.handleClient();
-  }
+}
 
-  //==========Chương trình con=================//
-  void mainpage()
-  {
+//==========Chương trình con=================//
+void mainpage()
+{
   String s = FPSTR(MainPage);
   webServer.send(200, "text/html", s);
-  }
+}
 
-  void on_D1()
-  {
+void on_D1()
+{
   Serial.println("D1,LOW");
   String s = FPSTR(MainPage);
   webServer.send(200, "text/html", s);
-  }
-  void off_D1()
-  {
+}
+void off_D1()
+{
   Serial.println("D1,HIGH");
   String s = FPSTR(MainPage);
   webServer.send(200, "text/html", s);
-  }
-  void on_D2()
-  {
+}
+void on_D2()
+{
   Serial.println("D2,LOW");
   String s = FPSTR(MainPage);
   webServer.send(200, "text/html", s);
-  }
-  void off_D2()
-  {
+}
+void off_D2()
+{
   Serial.println("D2,HIGH");
   String s = FPSTR(MainPage);
   webServer.send(200, "text/html", s);
-  }
+}
