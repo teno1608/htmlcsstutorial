@@ -11,7 +11,7 @@ char *pass = "non";
 char *apssid = "enter access point";
 char *appass = "enter pass";
 
-//=========Biến chứa mã HTLM Website==//
+//Creat html web page
 const char MainPage[] PROGMEM = R"=====(
   <!DOCTYPE html>
   <html>
@@ -101,7 +101,7 @@ void loop()
   webServer.handleClient();
 }
 
-//==========Chương trình con=================//
+//Second program creat
 void mainpage()
 {
   String s = FPSTR(MainPage);
